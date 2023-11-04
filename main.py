@@ -9,9 +9,10 @@ from io import BytesIO
 
 
 
-# Define class names
+# class names for model
 class_names1 = ['Non Violent', 'Violence']
 
+# coco class_names for model2
 class_names = [
     "Person", "Bicycle", "Car", "Motorbike", "Aeroplane", "Bus", "Train", "Truck",
     "Boat", "Traffic Light", "Fire Hydrant", "Stop Sign", "Parking Meter", "Bench",
@@ -29,11 +30,11 @@ class_names = [
 # Email configuration
 smtp_server = 'smtp.gmail.com'
 smtp_port = 587  # Port for SMTP (commonly 587 for TLS)
-smtp_username = 'hackingandtesting2@gmail.com'
-smtp_password = 'nwxo kdhu weqn qmaf'
-from_email = 'hackingandtesting2@gmail.com'
-to_email = 'rakibulhaque9954@gmail.com'
-subject = 'Frame from Video Stream'
+smtp_username = os.environ('USER_EMAIL')
+smtp_password = os.environ('PASSWORD')
+from_email = os.environ('USER_EMAIL')
+to_email = os.environ('TO_SENDER_EMAIL')
+subject = 'Frame from Fight Alert System'
 
 # Function to send email
 def send_frame_as_email(frame, to_email):
@@ -63,12 +64,12 @@ def send_frame_as_email(frame, to_email):
 
 # Initialize webcam capture
 cap = cv2.VideoCapture('/Users/boss/Desktop/yolo/test.mp4')
-cap.set(3, 2000)  # Set width
-cap.set(4, 2000)  # Set height
+cap.set(3, 800)  # Set width
+cap.set(4, 720)  # Set height
 
 # Load the YOLO model with pre-trained weights
-model = YOLO('/Users/boss/Desktop/yolo/best.pt')
-model2 = YOLO('/Users/boss/Desktop/yolov8n.pt')
+model = YOLO('/Users/boss/Desktop/yolo/best.pt') # model for violence detection
+model2 = YOLO('/Users/boss/Desktop/yolov8n.pt') # model for person/object detection
 
 # Initialize a counter for the "Violence" class
 violence_counter = 0
@@ -107,7 +108,6 @@ while True:
                 people_count += 1
 
                 if people_count >= 2:
-                    violence_detected = False  # Flag to check if violence is detected in this frame
                     results_2 = model.predict(img)
 
                     for r in results_2:
@@ -129,17 +129,18 @@ while True:
                             else:
                                 violence_counter = 0
 
-                            cv2.putText(img, f'{class_name} {conf}',(x1, y1 - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.8, (0, 0, 255), 2)
+                            cv2.putText(img, f'{class_name} {conf}',(x1, y1 - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.8, (0, 0, 255), 2) # no box just text will appear when
+                            # violence is detected
 
                             # If "Violence" has been detected for 100 consecutive frames, print the message
-                            if violence_counter >= 20:
+                            if violence_counter >= 10:
                                 print("Violence detected consistently for 10 frames.")
                                 time.sleep(0.5)
                                 print('Initialising alert system...')
                                 time.sleep(0.5)
                                 print('Alerting Authorities')
                                 frame = imutils.resize(img, width=600)  # Resize for easier emailing
-                                send_frame_as_email(frame, to_email)
+                                send_frame_as_email(frame, to_email) # sending email if violence is detected frames 
 
     # Show the processed image
     cv2.imshow('Violence Detection', img)
