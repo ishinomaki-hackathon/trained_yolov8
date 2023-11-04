@@ -9,7 +9,7 @@ The aim of this project is to create a real-time violence detection system using
 ## Methodology
 
 ### Data Preparation
-A carefully curated dataset was used to train the model. The dataset includes labeled instances of 'Violent' and 'Non-Violent' behavior and is prepared to provide balanced and diverse training material.
+A carefully curated dataset was used to train the model. The dataset includes labeled instances of 'Violent' and 'Non-Violent' behavior and is prepared to provide balanced and diverse training material. You can access the Roboflow dataset [here](https://universe.roboflow.com/east-west-uniersity/violance-nonviolance).
 
 ### Model Training
 We utilized a variant of the YOLO model optimized for our specific use case, focusing on real-time detection capabilities while maintaining high accuracy.
