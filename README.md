@@ -126,8 +126,8 @@ To run the violence detection system:
 
 - Update the data.yaml file with the correct paths to your dataset.
 - Configure the email settings in main.py to receive alerts.
-- Execute the main.py script to start the detection system.
-- There were two models used: one is for object detection which is the regular yolo and one with the custom dataset, here are the weight, you can download these [weights](https://github.com/ishinomaki-hackathon/trained_yolov8/blob/755e475415a8dc857b9121e3c4d51aa13941bb93/best.pt) and load then in the main.py file.
+- Execute the [main.py](https://github.com/ishinomaki-hackathon/trained_yolov8/blob/ceab733f53d153e0e2fc24f01602d3d4243a78d9/main.py) script to start the detection system.
+- There were two models used: one is for object detection which is the regular yolo and one with the custom dataset, here are the weight, you can download these [weights](https://github.com/ishinomaki-hackathon/trained_yolov8/blob/755e475415a8dc857b9121e3c4d51aa13941bb93/best.pt) and load then in the [main.py](https://github.com/ishinomaki-hackathon/trained_yolov8/blob/ceab733f53d153e0e2fc24f01602d3d4243a78d9/main.py) file.
 
 - ## Setup and Configuration
 
