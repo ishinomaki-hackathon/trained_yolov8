@@ -1,4 +1,5 @@
 # Violence Detection System using YOLO
+[日本語](日本語README.md)
 
 ## Project Objective
 The aim of this project is to create a real-time violence detection system using a custom-trained YOLO (You Only Look Once) model. This system is designed to analyze video feeds, identify potential violent behavior, and issue alerts for immediate action.
@@ -108,7 +109,7 @@ Graphs depicting the training performance of the model, illustrating the optimiz
 **Predictions**<br>
 
 ![Validation labels](https://github.com/ishinomaki-hackathon/trained_yolov8/blob/4f80aeafcec674f8fb1a30910a9af469364a9b3c/val_batch2_labels.jpg)
-**Ground Truth or Labels(This was still early in training).**<br>
+**Ground Truth or Labels(This was still early in training).** <br>
 
 Validation images with predictions versus actual labels provide a visual confirmation of the model's predictive accuracy on unseen data.
 
@@ -129,7 +130,7 @@ To run the violence detection system:
 - Execute the [main.py](https://github.com/ishinomaki-hackathon/trained_yolov8/blob/ceab733f53d153e0e2fc24f01602d3d4243a78d9/main.py) script to start the detection system.
 - There were two models used: one is for object detection which is the regular yolo and one with the custom dataset, here are the weight, you can download these [weights](https://github.com/ishinomaki-hackathon/trained_yolov8/blob/755e475415a8dc857b9121e3c4d51aa13941bb93/best.pt) and load then in the [main.py](https://github.com/ishinomaki-hackathon/trained_yolov8/blob/ceab733f53d153e0e2fc24f01602d3d4243a78d9/main.py) file.
 
-- ## Setup and Configuration
+## Setup and Configuration
 
 ### Prerequisites
 - Python 3.6 or later
